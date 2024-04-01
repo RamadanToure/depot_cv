@@ -20,7 +20,7 @@
                     @if (Auth::check() && Auth::user()->role === 'admin')
                         <!-- Lien pour les administrateurs -->
                         <x-nav-link :href="route('cv.index')" :active="request()->routeIs('cv.index')">
-                            {{ __('Liste des CV') }}
+                            {{ __('Gestion des CV') }}
                         </x-nav-link>
                     @else
                         <!-- Lien pour les utilisateurs non administrateurs -->

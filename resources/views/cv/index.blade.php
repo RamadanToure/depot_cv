@@ -3,52 +3,54 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h2><b>Recherche Avancée de CV</b></h2>
+                    @if(auth()->user()->role === 'admin')
+                        <div class="card">
+                            <div class="card-header">
+                                <h2><b>Recherche Avancée de CV</b></h2>
+                            </div>
+                            <div class="card-body border">
+                                <form method="POST" action="{{ route('search') }}" class="row g-3">
+                                    @csrf
+                                    <div class="form-group row">
+                                        <div class="col-md-3">
+                                            <label for="experience" class="form-label"><b>Expérience :</b></label>
+                                            <input type="text" name="experience" id="experience" class="form-control" placeholder="Expérience">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="skills" class="form-label"><b>Compétences :</b></label>
+                                            <select name="skills" id="skills" class="form-control">
+                                                <option value="">Sélectionnez une compétence</option>
+                                                @isset($cvs)
+                                                    @foreach($cvs as $cv)
+                                                        <option value="{{ $cv->dernier_diplome }}">{{ $cv->dernier_diplome }}</option>
+                                                    @endforeach
+                                                @endisset
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label for="skills" class="form-label"><b>Domaine d'Étude :</b></label>
+                                            <select name="skills" id="skills" class="form-control">
+                                                <option value="">Sélectionnez un domaine d'étude</option>
+                                                @isset($cvs)
+                                                    @foreach($cvs as $cv)
+                                                        <option value="{{ $cv->domaine_etudes }}">{{ $cv->domaine_etudes}}</option>
+                                                    @endforeach
+                                                @endisset
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row">
+
+                                        <div class="col-md-6 d-flex align-items-end">
+                                            <button type="submit" class="btn btn-primary" style="background-color: rgb(57, 103, 228); color: white;">Rechercher</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                        <div class="card-body border">
-                            <form method="POST" action="{{ route('search') }}" class="row g-3">
-                                @csrf
-                                <div class="form-group row">
-                                    <div class="col-md-3">
-                                        <label for="experience" class="form-label"><b>Expérience :</b></label>
-                                        <input type="text" name="experience" id="experience" class="form-control" placeholder="Expérience">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label for="skills" class="form-label"><b>Compétences :</b></label>
-                                        <select name="skills" id="skills" class="form-control">
-                                            <option value="">Sélectionnez une compétence</option>
-                                            @isset($cvs)
-                                                @foreach($cvs as $cv)
-                                                    <option value="{{ $cv->dernier_diplome }}">{{ $cv->dernier_diplome }}</option>
-                                                @endforeach
-                                            @endisset
-                                        </select>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <label for="skills" class="form-label"><b>Domaine d'Étude :</b></label>
-                                        <select name="skills" id="skills" class="form-control">
-                                            <option value="">Sélectionnez un domaine d'étude</option>
-                                            @isset($cvs)
-                                                @foreach($cvs as $cv)
-                                                    <option value="{{ $cv->domaine_etudes }}">{{ $cv->domaine_etudes}}</option>
-                                                @endforeach
-                                            @endisset
-                                        </select>
-                                    </div>
-
-                                </div>
-                                <div class="form-group row">
-
-                                    <div class="col-md-6 d-flex align-items-end">
-                                        <button type="submit" class="btn btn-primary" style="background-color: rgb(57, 103, 228); color: white;">Rechercher</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>
