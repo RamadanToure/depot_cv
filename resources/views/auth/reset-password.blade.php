@@ -36,4 +36,11 @@
             </x-primary-button>
         </div>
     </form>
+
+    <div class="mt-4 text-center">
+        <a href="{{ url('/') }}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-900 dark:hover:text-indigo-200">
+            <!-- Vous pouvez utiliser un texte ou une icône ici -->
+            Retour à l'accueil
+        </a>
+    </div>
 </x-guest-layout>

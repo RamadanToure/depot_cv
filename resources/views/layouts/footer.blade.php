@@ -23,7 +23,7 @@
             <p>
                 Kalum – Almamya, Conakry,<br>
                 République de Guinée <br>
-                BP : 585 – Tél :
+                BP : 585
                 <br><br>
               <strong>Téléphone :</strong> +224 622 97 01 86<br>
               <strong>Email:</strong> santeinfo@sante.gov.gn<br>

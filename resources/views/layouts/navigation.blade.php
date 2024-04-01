@@ -1,4 +1,5 @@
-<nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+<nav x-data="{ open: false }" class="bg-blue-900 dark:bg-blue-900 border-b border-gray-100 dark:border-gray-700">
+
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -6,19 +7,34 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                        <img class="block h-9 w-auto" src="{{ asset('assets/img/3.png') }}" alt="Logo">
                     </a>
                 </div>
+
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('MSHP | CV') }}
                     </x-nav-link>
+                    @if (Auth::check() && Auth::user()->role === 'admin')
+                        <!-- Lien pour les administrateurs -->
+                        <x-nav-link :href="route('cv.index')" :active="request()->routeIs('cv.index')">
+                            {{ __('Liste des CV') }}
+                        </x-nav-link>
+                    @else
+                        <!-- Lien pour les utilisateurs non administrateurs -->
+                        <x-nav-link :href="route('cv.index')" :active="request()->routeIs('cv.index')">
+                            {{ __('Mon CV') }}
+                        </x-nav-link>
+                    @endif
+
                     <x-nav-link :href="route('cv.submit.form')" :active="request()->routeIs('cv.submit.form')">
                         {{ __('Déposer un CV') }}
                     </x-nav-link>
                 </div>
+
+
             </div>
 
             <!-- Settings Dropdown -->
@@ -38,7 +54,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('Mon compte') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -48,7 +64,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Déconnecter') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -84,7 +100,7 @@
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                    {{ __('Mon compte') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
@@ -94,7 +110,7 @@
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Déconnecter') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

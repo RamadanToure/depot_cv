@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dépôt de CV P. de la Santé</title>
+  <title>ADCV | MSHP</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ asset('assets/img/3.png') }}" rel="icon">
   <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -34,8 +34,8 @@
   <section id="topbar" class="d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
-        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">infot@sante.gov.gn</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+224 622 97 01 86 </span></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -56,7 +56,7 @@
       <h1>BIENVENUE SUR <span>ADCV | MSHP</span></h1>
       <h2>Application de Dépôt de CV pour les Professionnels de la Santé</h2>
       <div class="d-flex">
-        <a href="#" class="btn-get-started scrollto">JE DEPOSE MON CV</a>
+        <a href="#services" onclick="redirectToCVSubmission()" class="btn-get-started scrollto">JE DEPOSE MON CV</a>
       </div>
     </div>
   </section><!-- End Hero -->

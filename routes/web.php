@@ -6,9 +6,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    $cvController = new CVController();
+    $data = $cvController->fetchCounts();
+    return view('welcome', $data);
 });
 
+Route::get('/apropos', function () {
+    return view('apropos');
+})->name('apropos');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
@@ -22,6 +27,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('cv', CVController::class);
     Route::get('/submit-cv', [CVController::class, 'showSubmitForm'])->name('cv.submit.form');
     Route::post('/submit-cv', [CVController::class, 'submit'])->name('cv.submit');
+    Route::get('/cv/{id}/pdf', [CVController::class, 'showPdf'])->name('cv.pdf');
+
+
+
 });
 
 require __DIR__.'/auth.php';
