@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('cvs', function (Blueprint $table) {
             $table->id();
             $table->string('nom_complet');
-            $table->string('adresse_email');
+            $table->string('email', 191)->unique();
             $table->string('numero_telephone');
             $table->string('poste_actuel');
             $table->string('entreprise_actuelle');
