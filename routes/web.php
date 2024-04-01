@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CVController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/submit-cv', [CVController::class, 'showSubmitForm'])->name('cv.submit.form');
     Route::post('/submit-cv', [CVController::class, 'submit'])->name('cv.submit');
     Route::get('/cv/{id}/pdf', [CVController::class, 'showPdf'])->name('cv.pdf');
+    Route::get('/search', [SearchController::class, 'showSearchForm'])->name('search.form');
+    Route::post('/search', [SearchController::class, 'search'])->name('search');
 
 
 
