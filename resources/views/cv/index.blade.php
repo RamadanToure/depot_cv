@@ -83,9 +83,10 @@
                     <td>{{ $cv->dernier_diplome }}</td>
                     <td>{{ $cv->domaine_etudes }}</td>
                     <td>
-                        <a href="{{ route('cv.pdf', $cv->id) }}" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cvModal{{ $cv->id }}">
+                        <a href="{{ asset('storage/cvs/' . urldecode($cv->cv_filename)) }}" class="btn btn-primary" target="_blank">
                             <i class="fas fa-eye"></i> Voir
                         </a>
+
                         <a href="{{ route('cv.edit', $cv->id) }}" class="btn btn-success">
                             <i class="fas fa-edit"></i>
                         </a>

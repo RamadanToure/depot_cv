@@ -84,3 +84,25 @@ $user = App\Models\User::create([
     'password' => bcrypt('Sramadan@22'),
     'role' => 'admin', 
 ]);
+
+$user = App\Models\User::create([
+    'name' => 'Admin',
+    'email' => 'jacksylla@gmail.com',
+    'password' => bcrypt('MSHP@2024'),
+    'role' => 'admin', 
+]);
+
+$user = App\Models\User::create([
+    'name' => 'Admin',
+    'email' => 'sallkhaite@yahoo.com',
+    'password' => bcrypt('MSHP@2024'),
+    'role' => 'admin', 
+]);
+
+
+$user = App\Models\User::create([
+    'name' => 'Admin',
+    'email' => 'eloumargn@yahoo.fr',
+    'password' => bcrypt('MSHP@2024'),
+    'role' => 'admin', 
+]);

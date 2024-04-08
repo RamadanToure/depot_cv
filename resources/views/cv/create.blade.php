@@ -76,10 +76,9 @@
                                     <label for="competences">Compétences</label>
                                     <input type="text" class="form-control" id="competences" name="competences" required>
                                 </div>
-
                                 <div class="col-md-3">
                                     <label for="cv">CV (PDF, DOC, DOCX)</label>
-                                    <input type="file" class="form-control" id="competences" name="cv" required>
+                                    <input type="file" class="form-control" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
                                 </div>
 
                                 <div class="col-md-3">
